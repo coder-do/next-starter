@@ -8,7 +8,6 @@ export default function events() {
     const events = getFeaturedEvents().map(item => {
         return Object.values(item);
     });
-    console.log(events);
     return (
         <Row>
             <Col span={24}>

@@ -1,8 +1,14 @@
-import { Card, Col, Row, Avatar } from 'antd';
+import { Card, Col, Row, Avatar, Button } from 'antd';
+import Link from 'next/link';
+import { useRouter } from 'next/router'
 
 const { Meta } = Card;
 
 export default function Events({ items }) {
+    // const router = useRouter();
+    const detailHandler = id => {
+        router.push(`${router.pathname}/${id}`)
+    }
     return (
         <div className="site-card-wrapper" style={{ marginTop: '50px' }}>
             <Row gutter={16}>
@@ -15,8 +21,9 @@ export default function Events({ items }) {
                                 src={item[5]} style={{ height: 200 }} />}
                         >
                             <Meta
-                                avatar={<Avatar src={item[5]} />}
+                                // avatar={<Avatar src={item[5]} />}
                                 title={item[1]}
+                                style={{ marginBottom: '10px' }}
                             />
                             <Meta
                                 style={{ margin: 0 }}
@@ -27,6 +34,9 @@ export default function Events({ items }) {
                                 description={item[4]}
                                 style={{ marginTop: '10px', textAlign: 'end' }}
                             />
+                            <Link href={'/events/' + item[0]}>
+                                <Button type="primary" /*onClick={() => detailHandler(item[0])}*/>Details</Button>
+                            </Link>
                         </Card>
                     </Col>
                 ))}
