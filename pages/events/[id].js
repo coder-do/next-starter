@@ -1,9 +1,7 @@
-import { Row, Col, Typography } from 'antd';
+import { Row, Col } from 'antd';
 import { useRouter } from 'next/router';
 import { getEventById } from '../../data';
 import EventDetails from '../../components/events/event-detail';
-
-const { Title } = Typography;
 
 export default function eventDetaild() {
     const router = useRouter();
