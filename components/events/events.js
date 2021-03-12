@@ -13,10 +13,16 @@ export default function Events({ items }) {
         <div className="site-card-wrapper" style={{ marginTop: '50px' }}>
             <Row gutter={16}>
                 {items.map(item => (
-                    <Col key={item[0]} span={6} offset={2}>
+                    <Col key={item[0]}
+                        xl={{ span: 6, offset: 2 }}
+                        lg={{ span: 5, offset: 2 }}
+                        md={{ span: 8, offset: 3 }}
+                        sm={{ span: 8, offset: 3 }}   /* 8    2 */
+                        xs={{ span: 11, offset: 4 }}  /* 11   4 */
+                    >
                         <Card
                             hoverable
-                            style={{ width: 240 }}
+                            style={{ width: 240, marginBottom: '25px' }}
                             cover={<img alt={item[0]}
                                 src={item[5]} style={{ height: 200 }} />}
                         >
