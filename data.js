@@ -7,7 +7,8 @@ const DUMMY_EVENTS = [
         location: 'Somestreet 25, 12345 San Somewhereo',
         date: '2021-05-12',
         image: 'images/coding-event.jpg',
-        isFeatured: true,
+        isFeatured: ['isFeatured'],
+        key: '1',
     },
     {
         id: 'e2',
@@ -17,7 +18,8 @@ const DUMMY_EVENTS = [
         location: 'New Wall Street 5, 98765 New Work',
         date: '2021-05-30',
         image: 'images/extrovert-event.jpg',
-        isFeatured: true,
+        isFeatured: ['isFeatured'],
+        key: '2',
     },
     {
         id: 'e3',
@@ -27,7 +29,8 @@ const DUMMY_EVENTS = [
         location: 'My Street 12, 10115 Broke City',
         date: '2022-04-10',
         image: 'images/introvert-event.jpg',
-        isFeatured: true,
+        isFeatured: ['isFeatured'],
+        key: '3',
     },
     {
         id: 'e4',
@@ -37,8 +40,20 @@ const DUMMY_EVENTS = [
         location: 'My Street 12, 10115 Broke City',
         date: '2022-04-10',
         image: 'images/coding-event.jpg',
-        isFeatured: false,
+        isFeatured: ['Not featured'],
+        key: '4',
     },
+    {
+        id: 'e5',
+        title: 'Programming for everyone',
+        description:
+            'Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.',
+        location: 'Somestreet 25, 12345 San Somewhereo',
+        date: '2021-01-10',
+        image: 'images/coding-event.jpg',
+        isFeatured: ['isFeatured'],
+        key: '5',
+    }
 ];
 
 export function getFeaturedEvents() {
