@@ -3,7 +3,7 @@ import Events from '../components/events';
 import EventsSearch from '../components/events/event-filter';
 import { getAllEvents } from '../data';
 import { useRouter } from 'next/router';
-
+import Nav from '../components/nav';
 const { Title } = Typography;
 
 const home = () => {
@@ -16,6 +16,7 @@ const home = () => {
 
     return (
         <>
+            <Nav />
             <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>All events</Title>
             <EventsSearch onSearch={findEvents} />
             <Row>
