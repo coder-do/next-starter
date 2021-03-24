@@ -9,7 +9,6 @@ export default function eventDetaild() {
     const events = getEventById(router.query.id);
     if (events) {
         for (let key in events) {
-
         }
     }
     return (
