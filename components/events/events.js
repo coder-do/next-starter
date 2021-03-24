@@ -1,14 +1,10 @@
 import { Card, Col, Row, Avatar, Button } from 'antd';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { ReadOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
 export default function Events({ items }) {
-    // const router = useRouter();
-    const detailHandler = id => {
-        router.push(`${router.pathname}/${id}`)
-    }
     return (
         <div className="site-card-wrapper" style={{ marginTop: '50px' }}>
             <Row gutter={16}>
@@ -41,7 +37,7 @@ export default function Events({ items }) {
                                 style={{ marginTop: '10px', textAlign: 'end' }}
                             />
                             <Link href={'/events/' + item[0]}>
-                                <Button type="primary" /*onClick={() => detailHandler(item[0])}*/>Details</Button>
+                                <Button type="primary">Details <ReadOutlined /></Button>
                             </Link>
                         </Card>
                     </Col>

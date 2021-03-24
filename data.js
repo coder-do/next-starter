@@ -7,7 +7,7 @@ const DUMMY_EVENTS = [
         location: 'Somestreet 25, 12345 San Somewhereo',
         date: '2021-05-12',
         image: 'images/coding-event.jpg',
-        isFeatured: ['isFeatured'],
+        isFeatured: true,
         key: '1',
     },
     {
@@ -18,7 +18,7 @@ const DUMMY_EVENTS = [
         location: 'New Wall Street 5, 98765 New Work',
         date: '2021-05-30',
         image: 'images/extrovert-event.jpg',
-        isFeatured: ['isFeatured'],
+        isFeatured: true,
         key: '2',
     },
     {
@@ -29,7 +29,7 @@ const DUMMY_EVENTS = [
         location: 'My Street 12, 10115 Broke City',
         date: '2022-04-10',
         image: 'images/introvert-event.jpg',
-        isFeatured: ['isFeatured'],
+        isFeatured: true,
         key: '3',
     },
     {
@@ -40,7 +40,7 @@ const DUMMY_EVENTS = [
         location: 'My Street 12, 10115 Broke City',
         date: '2022-04-10',
         image: 'images/coding-event.jpg',
-        isFeatured: ['Not featured'],
+        isFeatured: false,
         key: '4',
     },
     {
@@ -51,7 +51,7 @@ const DUMMY_EVENTS = [
         location: 'Somestreet 25, 12345 San Somewhereo',
         date: '2021-01-10',
         image: 'images/coding-event.jpg',
-        isFeatured: ['isFeatured'],
+        isFeatured: true,
         key: '5',
     }
 ];

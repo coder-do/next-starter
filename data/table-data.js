@@ -23,9 +23,11 @@ export const columns = [
         render: tags => (
             <>
                 {tags.map(tag => {
-                    let color = tag.length > 5 ? 'green' : 'geekblue';
+                    let color = 'green';
                     if (tag === 'Not featured') {
                         color = 'volcano';
+                    } else {
+                        tag = 'Featured';
                     }
                     return (
                         <Tag color={color} key={tag}>
