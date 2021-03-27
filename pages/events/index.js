@@ -1,11 +1,10 @@
 import { Row, Col, Typography } from 'antd';
 import Events from '../../components/events';
-import { getFeaturedEvents } from '../../data';
+import { getFeaturedEvents } from '../../utils/api';
 import Nav from '../../components/nav';
 const { Title } = Typography;
 
-export default function events() {
-    const events = getFeaturedEvents().map(item => Object.values(item));
+const events = ({ events }) => {
     return (
         <>
             <Nav />
@@ -18,3 +17,14 @@ export default function events() {
         </>
     )
 }
+
+export async function getStaticProps() {
+    let events = await getFeaturedEvents();
+    return {
+        props: {
+            events: events
+        }
+    }
+}
+
+export default events;

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { RollbackOutlined } from '@ant-design/icons';
 
 const EventDetails = ({ events }) => {
-    const ev = events && Object.values(events);
     const router = useRouter();
     return (
         <>
@@ -11,10 +10,10 @@ const EventDetails = ({ events }) => {
             <List
                 size="large"
                 bordered
-                dataSource={ev}
-                renderItem={item => typeof item !== 'boolean' && <List.Item>{item}</List.Item>}
+                dataSource={events}
+                renderItem={item => item !== events[5] && <List.Item>{item}</List.Item>}
             />
-            {/* <Link href='/events'>Go back</Link> */ /* not optimal to go back from every page */}
+
             <Button
                 type='ghost'
                 style={{ marginTop: '20px' }}
