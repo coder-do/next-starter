@@ -1,15 +1,13 @@
 import { Row, Col, Typography } from 'antd';
 import Events from '../components/events';
 import EventsSearch from '../components/events/event-filter';
-import { getAllEvents } from '../data';
+import { getAllEvents } from '../utils/api';
 import { useRouter } from 'next/router';
 import Nav from '../components/nav';
 const { Title } = Typography;
 
-const home = () => {
-    const events = getAllEvents().map(item => Object.values(item));
+const home = ({ events }) => {
     const router = useRouter();
-
     const findEvents = (year, month) => {
         router.push(`/events/${year}/${month}`);
     }
@@ -26,6 +24,16 @@ const home = () => {
             </Row>
         </>
     )
+}
+
+export async function getStaticProps() {
+    let events = await getAllEvents();
+    return {
+        props: {
+            events: events,
+            revalidate: 30
+        }
+    }
 }
 
 export default home;

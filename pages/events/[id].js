@@ -1,16 +1,9 @@
 import { Row, Col } from 'antd';
-import { useRouter } from 'next/router';
-import { getEventById } from '../../data';
+import { getEventById, getFeaturedEvents } from '../../utils/api';
 import EventDetails from '../../components/events/event-detail';
 import Nav from '../../components/nav';
 
-export default function eventDetaild() {
-    const router = useRouter();
-    const events = getEventById(router.query.id);
-    if (events) {
-        for (let key in events) {
-        }
-    }
+const eventDetails = ({ events }) => {
     return (
         <>
             <Nav />
@@ -22,3 +15,35 @@ export default function eventDetaild() {
         </>
     )
 }
+
+export async function getStaticProps(context) {
+    const { params } = context;
+    const event = await getEventById(params.id);
+    const data = event.map(item => Object.values(item));
+
+    const extraData = [
+        'id: ', 'date: ', 'description: ',
+        'imagePath: ', 'isFeatured: ', 'key: ',
+        'location: ', 'title: '
+    ];
+
+    data[0] = data[0].map((item, index) => item = extraData[index] + item);
+
+    return {
+        props: {
+            events: data[0],
+            revalidate: 20
+        }
+    }
+}
+
+export async function getStaticPaths() {
+    const events = await getFeaturedEvents();
+    const id = events.map(item => ({ params: { id: item.id } }));
+    return {
+        paths: id,
+        fallback: 'blocking'
+    }
+}
+
+export default eventDetails
