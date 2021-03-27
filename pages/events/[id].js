@@ -1,5 +1,5 @@
 import { Row, Col } from 'antd';
-import { getEventById, getAllEvents } from '../../utils/api';
+import { getEventById, getFeaturedEvents } from '../../utils/api';
 import EventDetails from '../../components/events/event-detail';
 import Nav from '../../components/nav';
 
@@ -37,11 +37,11 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-    const events = await getAllEvents();
+    const events = await getFeaturedEvents();
     const id = events.map(item => ({ params: { id: item.id } }));
     return {
         paths: id,
-        fallback: false
+        fallback: 'blocking'
     }
 }
 

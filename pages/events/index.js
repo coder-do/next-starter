@@ -22,7 +22,8 @@ export async function getStaticProps() {
     let events = await getFeaturedEvents();
     return {
         props: {
-            events: events
+            events: events,
+            revalidate: 30
         }
     }
 }
