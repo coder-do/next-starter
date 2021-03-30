@@ -1,0 +1,14 @@
+pull_request_rules:
+  - name: automatic merge if author is coder-do
+    conditions:
+      - author=coder-do
+    actions:
+      merge:
+        method: merge
+
+  - name: automatic merge if author is renovate
+    conditions:
+      - author=renovate
+    actions:
+      merge:
+        method: merge
