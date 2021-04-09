@@ -11,7 +11,7 @@ const events = ({ events }) => {
             <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>Featured events</Title>
             <Row>
                 <Col span={24}>
-                    <Events items={events} />
+                    <Events items={events} featured />
                 </Col>
             </Row>
         </>

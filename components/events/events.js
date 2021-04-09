@@ -1,10 +1,12 @@
-import { Card, Col, Row, Avatar, Button } from 'antd';
+import { Card, Col, Row, Avatar, Button, Badge } from 'antd';
 import Link from 'next/link';
 import { ReadOutlined } from '@ant-design/icons';
+import Image from 'next/image';
+import { HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons'
 
 const { Meta } = Card;
 
-export default function Events({ items }) {
+export default function Events({ items, featured }) {
     return (
         <div className="site-card-wrapper" style={{ marginTop: '50px' }}>
             <Row gutter={16}>
@@ -19,8 +21,7 @@ export default function Events({ items }) {
                         <Card
                             hoverable
                             style={{ width: 240, marginBottom: '25px' }}
-                            cover={<img alt={item.id}
-                                src={item.image} style={{ height: 200 }} />}
+                            cover={<Image src={'/' + item.image} alt={item.id} height={200} width={240} />}
                         >
                             <Meta
                                 // avatar={<Avatar src={item[5]} />}
@@ -33,8 +34,20 @@ export default function Events({ items }) {
                             />
                             <Meta
                                 title={item.location}
-                                description={item.date}
-                                style={{ marginTop: '10px', textAlign: 'end' }}
+                                description={(
+                                    <div style={{
+                                        display: 'flex', justifyContent: 'space-between', margin: '10px 0'
+                                    }}>
+                                        {item.date}
+                                        {featured && (
+                                            <CheckCircleTwoTone
+                                                twoToneColor="#52c41a"
+                                                style={{ fontSize: '25px' }}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+                                style={{ marginTop: '10px' }}
                             />
                             <Link href={'/events/' + item.id}>
                                 <Button type="primary">Details <ReadOutlined /></Button>
