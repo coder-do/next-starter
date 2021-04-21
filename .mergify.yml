@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: automatic merge if author is coder-do
+  - name: automatic merge if author is owner
     conditions:
       - author=coder-do
     actions:
