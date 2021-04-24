@@ -10,7 +10,7 @@ const home = ({ events }) => {
     const router = useRouter();
     const findEvents = (year, month) => {
         router.push(`/events/${year}/${month}`);
-    }
+    };
 
     return (
         <>
@@ -23,8 +23,8 @@ const home = ({ events }) => {
                 </Col>
             </Row>
         </>
-    )
-}
+    );
+};
 
 export async function getStaticProps() {
     let events = await getAllEvents();
@@ -33,7 +33,7 @@ export async function getStaticProps() {
             events: events,
             revalidate: 30
         }
-    }
+    };
 }
 
 export default home;

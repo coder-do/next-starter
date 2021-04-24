@@ -11,7 +11,7 @@ const eventFiltered = ({ events }) => {
             <div style={{ padding: '50px 25vw' }}>
                 <Spin tip='Loading...'></Spin>
             </div>
-        )
+        );
     }
 
     return (
@@ -29,8 +29,8 @@ const eventFiltered = ({ events }) => {
                 </Col>
             </Row>
         </>
-    )
-}
+    );
+};
 
 export async function getServerSideProps({ params }) {
     const data = params.slug;
@@ -45,7 +45,7 @@ export async function getServerSideProps({ params }) {
         props: {
             events: filteredData
         }
-    }
+    };
 }
 
 export default eventFiltered;

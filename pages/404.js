@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Result, Button } from 'antd';
 import Nav from '../components/nav';
@@ -12,7 +12,7 @@ export default function errorPage() {
         setTimeout(() => {
             setLoading(false);
             router.back();
-        }, 1000)
+        }, 1000);
     }
     return (
         <>
@@ -24,5 +24,5 @@ export default function errorPage() {
                 extra={<Button type="primary" onClick={goHome} loading={loading}>Go Back</Button>}
             />
         </>
-    )
+    );
 }

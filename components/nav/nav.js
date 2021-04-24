@@ -23,7 +23,7 @@ const Nav = () => {
                 </Row>
             </Header>
         </Layout >
-    )
-}
+    );
+};
 
 export default Nav;

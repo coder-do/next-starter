@@ -1,6 +1,3 @@
-
-
-
 export async function getFeaturedEvents() {
     const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
     const data = await eventData.json();
@@ -12,7 +9,7 @@ export async function getFeaturedEvents() {
             filtered.push({
                 id: key,
                 ...data[key]
-            })
+            });
         }
     }
     return filtered;
@@ -28,7 +25,7 @@ export async function getAllEvents() {
         filteredData.push({
             id: key,
             ...data[key]
-        })
+        });
     }
     return filteredData;
 }
@@ -66,7 +63,7 @@ export async function getEventById(id) {
             filteredData.push({
                 id: key,
                 ...data[key]
-            })
+            });
         }
     }
 
