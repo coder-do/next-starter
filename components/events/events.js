@@ -2,7 +2,7 @@ import { Card, Col, Row, Avatar, Button, Badge } from 'antd';
 import Link from 'next/link';
 import { ReadOutlined } from '@ant-design/icons';
 import Image from 'next/image';
-import { HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons'
+import { CheckCircleTwoTone } from '@ant-design/icons'
 
 const { Meta } = Card;
 

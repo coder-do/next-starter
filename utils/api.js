@@ -1,6 +1,3 @@
-
-
-
 export async function getFeaturedEvents() {
     const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
     const data = await eventData.json();
