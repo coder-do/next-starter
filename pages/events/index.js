@@ -15,8 +15,8 @@ const events = ({ events }) => {
                 </Col>
             </Row>
         </>
-    )
-}
+    );
+};
 
 export async function getStaticProps() {
     let events = await getFeaturedEvents();
@@ -25,7 +25,7 @@ export async function getStaticProps() {
             events: events,
             revalidate: 30
         }
-    }
+    };
 }
 
 export default events;

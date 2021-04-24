@@ -9,7 +9,7 @@ export async function getFeaturedEvents() {
             filtered.push({
                 id: key,
                 ...data[key]
-            })
+            });
         }
     }
     return filtered;
@@ -25,7 +25,7 @@ export async function getAllEvents() {
         filteredData.push({
             id: key,
             ...data[key]
-        })
+        });
     }
     return filteredData;
 }
@@ -63,7 +63,7 @@ export async function getEventById(id) {
             filteredData.push({
                 id: key,
                 ...data[key]
-            })
+            });
         }
     }
 

@@ -13,8 +13,8 @@ const eventDetails = ({ events }) => {
                 </Col>
             </Row>
         </>
-    )
-}
+    );
+};
 
 export async function getStaticProps(context) {
     const { params } = context;
@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
             events: data[0],
             revalidate: 20
         }
-    }
+    };
 }
 
 export async function getStaticPaths() {
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
     return {
         paths: id,
         fallback: 'blocking'
-    }
+    };
 }
 
-export default eventDetails
+export default eventDetails;

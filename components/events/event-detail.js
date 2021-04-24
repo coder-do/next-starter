@@ -20,7 +20,7 @@ const EventDetails = ({ events }) => {
                 icon={<RollbackOutlined />}
                 onClick={() => router.back()}>Go back</Button>
         </>
-    )
-}
+    );
+};
 
 export default EventDetails;
