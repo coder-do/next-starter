@@ -3,8 +3,14 @@ import Events from '../../components/events';
 import { getFeaturedEvents } from '../../utils/api';
 import Nav from '../../components/nav';
 const { Title } = Typography;
+import { event } from '../../types/Event';
+import { GetStaticProps } from 'next';
 
-const events = ({ events }) => {
+type Props = {
+    events: event
+}
+
+const events: React.FC<Props> = ({ events }) => {
     return (
         <>
             <Nav />
@@ -18,7 +24,7 @@ const events = ({ events }) => {
     );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
     let events = await getFeaturedEvents();
     return {
         props: {
@@ -26,6 +32,6 @@ export async function getStaticProps() {
             revalidate: 30
         }
     };
-}
+};
 
 export default events;

@@ -2,8 +2,14 @@ import { Row, Col } from 'antd';
 import { getEventById, getFeaturedEvents } from '../../utils/api';
 import EventDetails from '../../components/events/event-detail';
 import Nav from '../../components/nav';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { event } from '../../types/Event';
 
-const eventDetails = ({ events }) => {
+type Props = {
+    events: event
+}
+
+const eventDetails: React.FC<Props> = ({ events }) => {
     return (
         <>
             <Nav />
@@ -16,12 +22,12 @@ const eventDetails = ({ events }) => {
     );
 };
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async (context) => {
     const { params } = context;
-    const event = await getEventById(params.id);
+    const event = await getEventById(params!.id);
     const data = event.map(item => Object.values(item));
 
-    const extraData = [
+    const extraData: string[] = [
         'id: ', 'date: ', 'description: ',
         'imagePath: ', 'isFeatured: ', 'key: ',
         'location: ', 'title: '
@@ -35,15 +41,15 @@ export async function getStaticProps(context) {
             revalidate: 20
         }
     };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     const events = await getFeaturedEvents();
     const id = events.map(item => ({ params: { id: item.id } }));
     return {
         paths: id,
         fallback: 'blocking'
     };
-}
+};
 
 export default eventDetails;

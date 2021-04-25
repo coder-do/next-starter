@@ -1,4 +1,6 @@
-export async function getFeaturedEvents() {
+import { event } from '../types/Event';
+
+const getFeaturedEvents = async () => {
     const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
     const data = await eventData.json();
 
@@ -13,9 +15,9 @@ export async function getFeaturedEvents() {
         }
     }
     return filtered;
-}
+};
 
-export async function getAllEvents() {
+const getAllEvents = async () => {
     const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
     const data = await eventData.json();
 
@@ -28,13 +30,13 @@ export async function getAllEvents() {
         });
     }
     return filteredData;
-}
+};
 
-export async function getFilteredEvents({ year, month }) {
+const getFilteredEvents = async ({ year, month }: any) => {
     const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
     const data = await eventData.json();
 
-    let filteredEvents = [];
+    let filteredEvents: Array<any> = [];
 
     Object.keys(data).forEach(key => {
         const eventDate = new Date(data[key].date);
@@ -50,13 +52,13 @@ export async function getFilteredEvents({ year, month }) {
     });
 
     return filteredEvents;
-}
+};
 
-export async function getEventById(id) {
+const getEventById = async (id: string) => {
     const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
     const data = await eventData.json();
 
-    let filteredData = [];
+    let filteredData: Array<event> = [];
 
     for (let key in data) {
         if (key === id) {
@@ -68,4 +70,11 @@ export async function getEventById(id) {
     }
 
     return filteredData;
-}
+};
+
+export {
+    getAllEvents,
+    getEventById,
+    getFeaturedEvents,
+    getFilteredEvents
+};
