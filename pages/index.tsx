@@ -3,12 +3,19 @@ import Events from '../components/events';
 import EventsSearch from '../components/events/event-filter';
 import { getAllEvents } from '../utils/api';
 import { useRouter } from 'next/router';
+import React from 'react';
 import Nav from '../components/nav';
+import { GetStaticProps } from 'next';
 const { Title } = Typography;
+import { event } from '../types/Event';
 
-const home = ({ events }) => {
+type Props = {
+    events: event
+}
+
+const home: React.FC<Props> = ({ events }) => {
     const router = useRouter();
-    const findEvents = (year, month) => {
+    const findEvents = (year: string, month: string) => {
         router.push(`/events/${year}/${month}`);
     };
 
@@ -19,14 +26,14 @@ const home = ({ events }) => {
             <EventsSearch onSearch={findEvents} />
             <Row>
                 <Col span={24}>
-                    <Events items={events} />
+                    <Events items={events} featured={false} />
                 </Col>
             </Row>
         </>
     );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
     let events = await getAllEvents();
     return {
         props: {
@@ -34,6 +41,6 @@ export async function getStaticProps() {
             revalidate: 30
         }
     };
-}
+};
 
 export default home;
