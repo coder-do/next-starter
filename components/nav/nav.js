@@ -1,15 +1,14 @@
 import { Menu, Row, Col, Layout } from 'antd';
-import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const { Header } = Layout;
 
-const Nav: React.FC = () => {
-    const path: string = useRouter().pathname;
+const Nav = () => {
+    const path = useRouter().pathname;
     return (
         <Layout>
-            <Header>
+            <Header style={{}}>
                 <Row justify="space-between" align="middle">
                     <Col flex="500px">
                         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['default']}>

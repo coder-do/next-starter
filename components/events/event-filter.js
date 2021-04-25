@@ -1,23 +1,18 @@
-import * as React from 'react';
 import { useRef } from 'react';
 import { Button } from 'antd';
 import classes from '../../styles/events-search.module.css';
 
-type Props = {
-    onSearch: (year: string, month: string) => void;
-}
+function EventsSearch(props) {
+    const yearInputRef = useRef();
+    const monthInputRef = useRef();
 
-const EventsSearch: React.FC<Props> = ({ onSearch }) => {
-    const yearInputRef = useRef<HTMLSelectElement>(null!);
-    const monthInputRef = useRef<HTMLSelectElement>(null!);
-
-    function submitHandler(event: React.FormEvent<HTMLElement>): void {
+    function submitHandler(event) {
         event.preventDefault();
 
         const selectedYear = yearInputRef.current.value;
         const selectedMonth = monthInputRef.current.value;
 
-        onSearch(selectedYear, selectedMonth);
+        props.onSearch(selectedYear, selectedMonth);
     }
 
     return (
@@ -52,6 +47,6 @@ const EventsSearch: React.FC<Props> = ({ onSearch }) => {
             <Button type='primary' htmlType='submit'>Find Events</Button>
         </form>
     );
-};
+}
 
 export default EventsSearch;

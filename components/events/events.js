@@ -1,4 +1,4 @@
-import { Card, Col, Row, /* Avatar, */ Button, /* Badge */ } from 'antd';
+import { Card, Col, Row, Avatar, Button, Badge } from 'antd';
 import Link from 'next/link';
 import { ReadOutlined } from '@ant-design/icons';
 import Image from 'next/image';
@@ -6,11 +6,11 @@ import { CheckCircleTwoTone } from '@ant-design/icons';
 
 const { Meta } = Card;
 
-const Events: React.FC<any> = ({ items, featured }) => {
+export default function Events({ items, featured }) {
     return (
         <div className="site-card-wrapper" style={{ marginTop: '50px' }}>
             <Row gutter={16}>
-                {items.map((item: any) => (
+                {items.map(item => (
                     <Col key={item.id}
                         xl={{ span: 6, offset: 2 }}
                         lg={{ span: 5, offset: 2 }}
@@ -58,6 +58,4 @@ const Events: React.FC<any> = ({ items, featured }) => {
             </Row>
         </div>
     );
-};
-
-export default Events;
+}
