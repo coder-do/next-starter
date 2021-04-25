@@ -22,9 +22,9 @@ const eventDetails: React.FC<Props> = ({ events }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
     const { params } = context;
-    const event = await getEventById(params!.id);
+    const event = await getEventById(params.id);
     const data = event.map(item => Object.values(item));
 
     const extraData: string[] = [
