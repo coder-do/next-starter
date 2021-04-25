@@ -1,11 +1,12 @@
 import { Row, Col, Typography, Table, Spin } from 'antd';
+import * as React from 'react';
 import { getFilteredEvents } from '../../utils/api';
-const { Title } = Typography;
 import { columns } from '../../data/table-data';
+import { GetServerSideProps } from 'next';
 import Nav from '../../components/nav';
+const { Title } = Typography;
 
-const eventFiltered = ({ events }) => {
-
+const eventFiltered: React.FC<any> = ({ events }) => {
     if (!events) {
         return (
             <div style={{ padding: '50px 25vw' }}>
@@ -13,7 +14,6 @@ const eventFiltered = ({ events }) => {
             </div>
         );
     }
-
     return (
         <>
             <Nav />
@@ -32,20 +32,18 @@ const eventFiltered = ({ events }) => {
     );
 };
 
-export async function getServerSideProps({ params }) {
-    const data = params.slug;
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+    const data = params?.slug;
     const filteredData = await getFilteredEvents({
-        year: +data[0],
-        month: +data[1]
+        year: +data![0],
+        month: +data![1]
     });
-
-    console.log(filteredData);
 
     return {
         props: {
             events: filteredData
         }
     };
-}
+};
 
 export default eventFiltered;

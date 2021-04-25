@@ -2,7 +2,8 @@ import { List, Divider, Button } from 'antd';
 import { useRouter } from 'next/router';
 import { RollbackOutlined } from '@ant-design/icons';
 
-const EventDetails = ({ events }) => {
+
+const EventDetails: React.FC<any> = ({ events }) => {
     const router = useRouter();
     return (
         <>
@@ -11,7 +12,7 @@ const EventDetails = ({ events }) => {
                 size="large"
                 bordered
                 dataSource={events}
-                renderItem={item => item !== events[5] && <List.Item>{item}</List.Item>}
+                renderItem={item => item !== events[5] && <List.Item>{item} </List.Item>}
             />
 
             <Button

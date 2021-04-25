@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useRouter, NextRouter } from 'next/router';
 import { Result, Button } from 'antd';
 import Nav from '../components/nav';
 
-export default function errorPage() {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
+const errorPage: React.FC<void> = () => {
+    const router: NextRouter = useRouter();
+    const [loading, setLoading] = useState<boolean>(false);
 
-    function goHome() {
+    function goHome(): void {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
@@ -25,4 +25,6 @@ export default function errorPage() {
             />
         </>
     );
-}
+};
+
+export default errorPage;
