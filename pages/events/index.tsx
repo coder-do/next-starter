@@ -6,8 +6,6 @@ const { Title } = Typography;
 import { event } from '../../types/Event';
 import { GetStaticProps } from 'next';
 
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 type Props = {
     events: event
 }
@@ -30,7 +28,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }: any) => {
     let events = await getFeaturedEvents();
     return {
         props: {
-            ...await serverSideTranslations(locale, ['common']),
             events: events,
             revalidate: 30
         }
