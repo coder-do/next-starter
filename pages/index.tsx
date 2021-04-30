@@ -9,6 +9,8 @@ import { GetStaticProps } from 'next';
 const { Title } = Typography;
 import { event } from '../types/Event';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 type Props = {
     events: event
 }
@@ -33,10 +35,11 @@ const home: React.FC<Props> = ({ events }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async ({ locale }: any) => {
     let events = await getAllEvents();
     return {
         props: {
+            ...await serverSideTranslations(locale, ['common']),
             events: events,
             revalidate: 30
         }
