@@ -10,5 +10,7 @@ coverage:
 ignore:
   - */data/.*
   
-comment:
-  layout: diff, files
+comment:                 
+  layout: "reach, diff, flags, files"
+  branches:         
+    - "main"
