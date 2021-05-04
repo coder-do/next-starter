@@ -1,7 +1,7 @@
 import { event } from '../types/Event';
 
 const getFeaturedEvents = async () => {
-    const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
+    const eventData = await fetch('https://udemy-courses-d8194-default-rtdb.firebaseio.com/courses.json');
     const data = await eventData.json();
 
     let filtered = [];
@@ -18,7 +18,7 @@ const getFeaturedEvents = async () => {
 };
 
 const getAllEvents = async () => {
-    const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
+    const eventData = await fetch('https://udemy-courses-d8194-default-rtdb.firebaseio.com/courses.json');
     const data = await eventData.json();
 
     let filteredData = [];
@@ -33,10 +33,10 @@ const getAllEvents = async () => {
 };
 
 const getFilteredEvents = async ({ year, month }: any) => {
-    const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
+    const eventData = await fetch('https://udemy-courses-d8194-default-rtdb.firebaseio.com/courses.json');
     const data = await eventData.json();
 
-    let filteredEvents: Array<any> = [];
+    let filteredEvents: Array<string | boolean> = [];
 
     Object.keys(data).forEach(key => {
         const eventDate = new Date(data[key].date);
@@ -55,7 +55,7 @@ const getFilteredEvents = async ({ year, month }: any) => {
 };
 
 const getEventById = async (id: string) => {
-    const eventData = await fetch('https://next-js-db-default-rtdb.firebaseio.com/events.json');
+    const eventData = await fetch('https://udemy-courses-d8194-default-rtdb.firebaseio.com/courses.json');
     const data = await eventData.json();
 
     let filteredData: Array<event> = [];

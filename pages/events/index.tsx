@@ -14,7 +14,7 @@ const events: React.FC<Props> = ({ events }) => {
     return (
         <>
             <Nav />
-            <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>Featured events</Title>
+            <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>პოპულარული კურსები</Title>
             <Row>
                 <Col span={24}>
                     <Events items={events} featured />

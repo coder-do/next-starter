@@ -19,14 +19,21 @@ const Nav: React.FC = () => {
                             >
                                 <Link
                                     href={'/'}
-                                >Home</Link>
+                                >ყველა</Link>
                             </Menu.Item>
                             <Menu.Item
                                 key={(path === '/events') ? 'default' : ''}
                             >
                                 <Link
                                     href={'/events'}
-                                >Featured</Link>
+                                >პოპულარული</Link>
+                            </Menu.Item>
+                            <Menu.Item
+                                key={(path === '/about') ? 'default' : ''}
+                            >
+                                <Link
+                                    href={'/about'}
+                                >ჩვენს შესახებ</Link>
                             </Menu.Item>
                         </Menu>
                     </Col>
