@@ -4,13 +4,6 @@ import { RollbackOutlined } from '@ant-design/icons';
 
 const EventDetails: React.FC<any> = ({ events }) => {
     const router = useRouter();
-    const data = {
-        author: () => (
-            <>
-
-            </>
-        )
-    }
     return (
         <>
             <Divider orientation="center">კურსის დეტალები</Divider>
