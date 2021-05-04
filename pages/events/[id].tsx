@@ -28,26 +28,32 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     const data = event.map(item => Object.values(item));
 
     const extraData: string[] = [
-        'id: ',
-        'author: ',
-        'authorImg link: ',
-        'date: ',
-        'description: ',
-        'image: ',
-        'isFeatured: ',
-        'language: ',
-        'link: ',
-        'rating: ',
-        "students: ",
-        'title: ',
-        'total hours: '
+        'კოდი:  ',
+        'ავტორი:    ',
+        'შექმნის თარიღი(ან განახლების): ',
+        'აღწერა:    ',
+        'ენა:  ',
+        'ლინკი:  ',
+        'რეიტინგი:    ',
+        "სტუდენტების რაოდენობა:  ",
+        'სათაური: ',
+        'კურსის ხანგრძლივობა(სთ):   '
     ];
 
-    data[0] = data[0].map((item, index) => item = extraData[index] + item);
+    let arr: string[] = [];
+    for (let i = 0; i < data[0].length; i++) {
+        if (i === 4 || i === 5) {
+            continue;
+        } else {
+            arr.push(data[0][i])
+        }
+    }
+    console.log(arr);
+    arr = arr.map((item, index) => item = extraData[index] + item);
 
     return {
         props: {
-            events: data[0],
+            events: arr,
             revalidate: 20
         }
     };
