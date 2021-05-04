@@ -1,0 +1,16 @@
+coverage:
+  status:
+    patch: false
+
+  range: 70..90    
+                    
+  round: down       
+  precision: 2      
+
+ignore:
+  - */data/.*
+  
+comment:                 
+  layout: "reach, diff, flags, files"
+  branches:         
+    - "main"
