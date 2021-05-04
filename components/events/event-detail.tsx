@@ -7,7 +7,7 @@ const EventDetails: React.FC<any> = ({ events }) => {
     const router = useRouter();
     return (
         <>
-            <Divider orientation="center">Event detail</Divider>
+            <Divider orientation="center">კურსის დეტალები</Divider>
             <List
                 size="large"
                 bordered
@@ -19,7 +19,7 @@ const EventDetails: React.FC<any> = ({ events }) => {
                 type='ghost'
                 style={{ marginTop: '20px' }}
                 icon={<RollbackOutlined />}
-                onClick={() => router.back()}>Go back</Button>
+                onClick={() => router.back()}>უკან</Button>
         </>
     );
 };

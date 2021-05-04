@@ -28,9 +28,19 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     const data = event.map(item => Object.values(item));
 
     const extraData: string[] = [
-        'id: ', 'date: ', 'description: ',
-        'imagePath: ', 'isFeatured: ', 'key: ',
-        'location: ', 'title: '
+        'id: ',
+        'author: ',
+        'authorImg link: ',
+        'date: ',
+        'description: ',
+        'image: ',
+        'isFeatured: ',
+        'language: ',
+        'link: ',
+        'rating: ',
+        "students: ",
+        'title: ',
+        'total hours: '
     ];
 
     data[0] = data[0].map((item, index) => item = extraData[index] + item);

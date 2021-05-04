@@ -20,8 +20,8 @@ const errorPage: React.FC<void> = () => {
             <Result
                 status="404"
                 title="404"
-                subTitle="Sorry, the page you visited does not exist."
-                extra={<Button type="primary" onClick={goHome} loading={loading}>Go Back</Button>}
+                subTitle="სამწუხაროდ ეს გვერდი არ არსებობს :("
+                extra={<Button type="primary" onClick={goHome} loading={loading}>უკან</Button>}
             />
         </>
     );

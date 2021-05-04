@@ -19,13 +19,12 @@ const eventFiltered: React.FC<any> = ({ events }) => {
             <Nav />
             <Row>
                 <Col span={12} offset={6}>
-                    <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>Event filtered page</Title>
+                    <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>გაფილტრული კურსები</Title>
                     <Table
                         columns={columns}
                         dataSource={events}
                         pagination={{ defaultPageSize: 5 }}
                     />
-
                 </Col>
             </Row>
         </>

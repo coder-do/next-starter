@@ -22,7 +22,7 @@ const home: React.FC<Props> = ({ events }) => {
     return (
         <>
             <Nav />
-            <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>All events</Title>
+            <Title level={2} style={{ textAlign: 'center', marginTop: '30px' }}>ყველა კურსი</Title>
             <EventsSearch onSearch={findEvents} />
             <Row>
                 <Col span={24}>
