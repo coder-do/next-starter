@@ -1,7 +1,6 @@
-import { List, Divider, Button } from 'antd';
+import { List, Divider, Button, Avatar, Badge } from 'antd';
 import { useRouter } from 'next/router';
 import { RollbackOutlined } from '@ant-design/icons';
-
 
 const EventDetails: React.FC<any> = ({ events }) => {
     const router = useRouter();

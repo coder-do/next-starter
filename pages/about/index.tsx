@@ -1,11 +1,12 @@
 import * as React from 'react';
 import Nav from '../../components/nav';
+import AboutPage from '../../components/about';
 
 const about = () => {
     return (
         <>
             <Nav />
-            <h1>About page</h1>
+            <AboutPage />
         </>
     )
 }

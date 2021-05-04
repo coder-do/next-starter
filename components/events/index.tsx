@@ -8,7 +8,7 @@ const { Meta } = Card;
 const Events: React.FC<any> = ({ items, featured }) => {
     return (
         <div className="site-card-wrapper" style={{ marginTop: '50px' }}>
-            <Row gutter={16}>
+            <Row>
                 {items.map((item: any) => (
                     <Col key={item.id}
                         xl={{ span: 4, offset: 3 }}

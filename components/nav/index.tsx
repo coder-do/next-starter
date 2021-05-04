@@ -33,7 +33,7 @@ const Nav: React.FC = () => {
                             >
                                 <Link
                                     href={'/about'}
-                                >ჩვენს შესახებ</Link>
+                                >საიტის შესახებ</Link>
                             </Menu.Item>
                         </Menu>
                     </Col>
