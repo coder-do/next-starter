@@ -22,7 +22,7 @@ const EventsSearch: React.FC<Props> = ({ onSearch }) => {
     }
 
     function loadingHandler(isLoading: boolean): void {
-        setLoading(!loading);
+        setLoading(!isLoading);
     }
 
     return (
