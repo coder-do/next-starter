@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from 'antd';
 import classes from '../../styles/events-search.module.css';
 
@@ -10,6 +10,7 @@ type Props = {
 const EventsSearch: React.FC<Props> = ({ onSearch }) => {
     const yearInputRef = useRef<HTMLSelectElement>(null!);
     const monthInputRef = useRef<HTMLSelectElement>(null!);
+    const [loading, setLoading] = useState<boolean>(false);
 
     function submitHandler(event: React.FormEvent<HTMLElement>): void {
         event.preventDefault();
@@ -18,6 +19,10 @@ const EventsSearch: React.FC<Props> = ({ onSearch }) => {
         const selectedMonth = monthInputRef.current.value;
 
         onSearch(selectedYear, selectedMonth);
+    }
+
+    function loadingHandler(isLoading: boolean): void {
+        setLoading(!loading);
     }
 
     return (
@@ -51,7 +56,7 @@ const EventsSearch: React.FC<Props> = ({ onSearch }) => {
                     </select>
                 </div>
             </div>
-            <Button type='primary' htmlType='submit'>ძებნა</Button>
+            <Button type='primary' htmlType='submit' loading={loading} onClick={() => loadingHandler(loading)}>ძებნა</Button>
         </form>
     );
 };
